@@ -36,12 +36,11 @@ const services = [
 
 const partners = ["NGOs", "Foundations", "CSR", "Government Programmes", "Social Enterprises"];
 
-const btn = "inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30";
+const btn = "inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground lift";
 
 function Index() {
   useEffect(() => {
-    const els = document.querySelectorAll("section h2, section h3, section p, section img, footer p");
-    els.forEach((e) => e.classList.add("reveal"));
+    const els = document.querySelectorAll(".reveal");
     const io = new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } }), { threshold: 0.15 });
     els.forEach((e) => io.observe(e));
     return () => io.disconnect();
@@ -58,7 +57,7 @@ function Index() {
                 <a key={l} href={`#${l.toLowerCase()}`} className="transition-colors hover:text-primary">{l}</a>
               ))}
             </div>
-            <BookingDialog className="rounded-full border border-foreground px-5 py-2 text-sm transition-colors hover:bg-foreground hover:text-background">Contact Us</BookingDialog>
+            <BookingDialog className="lift rounded-full border border-foreground px-5 py-2 text-sm hover:bg-foreground hover:text-background">Contact Us</BookingDialog>
           </div>
         </nav>
       </header>
@@ -82,7 +81,7 @@ function Index() {
 
       {/* Problem */}
       <section className="border-y border-border bg-secondary/50">
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-24 md:grid-cols-2 md:py-32">
+        <div className="reveal mx-auto grid max-w-7xl gap-10 px-6 py-24 md:grid-cols-2 md:py-32">
           <h2 className="text-5xl md:text-7xl">What's <em className="text-primary">missing?</em></h2>
           <p className="self-end text-xl leading-relaxed md:text-2xl">
             Most organizations have a communication team, but lack an outside lens to see the specific gap between the ground work and the audience.
@@ -92,7 +91,7 @@ function Index() {
 
       {/* How it works */}
       <section id="approach" className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-        <div className="mb-16 flex flex-wrap items-end justify-between gap-6">
+        <div className="reveal mb-16 flex flex-wrap items-end justify-between gap-6">
           <div>
             <p className="mb-4 text-xs uppercase tracking-[0.3em] text-primary">Our approach</p>
             <h2 className="text-5xl md:text-6xl">How it works</h2>
@@ -100,8 +99,8 @@ function Index() {
           <p className="max-w-sm text-muted-foreground">Six deliberate steps, from listening to the ground to carrying the story outward.</p>
         </div>
         <div className="grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-3">
-          {steps.map(({ n, t, d, I }) => (
-            <div key={n} className="group border-b border-r border-border p-10 transition-colors hover:bg-card">
+          {steps.map(({ n, t, d, I }, i) => (
+            <div key={n} style={{ "--d": `${i * 120}ms` } as React.CSSProperties} className="reveal group border-b border-r border-border p-10 hover:bg-card">
               <div className="flex items-start justify-between">
                 <span className="font-display text-lg text-muted-foreground">{n}</span>
                 <I strokeWidth={1.25} className="h-8 w-8 text-primary transition-transform group-hover:-rotate-6" />
@@ -115,12 +114,12 @@ function Index() {
 
       {/* Services */}
       <section id="services" className="bg-earth py-24 text-earth-foreground md:py-32">
-        <div className="mx-auto max-w-7xl px-6">
+        <div className="reveal mx-auto max-w-7xl px-6">
           <p className="mb-4 text-xs uppercase tracking-[0.3em] text-sand">What we do</p>
           <h2 className="mb-16 text-5xl md:text-6xl">Services</h2>
           <div className="grid gap-6 md:grid-cols-3">
             {services.map((s, i) => (
-              <div key={s.t} className="flex flex-col rounded-xl border border-earth-foreground/15 p-8 transition-all hover:-translate-y-1 hover:border-primary">
+              <div key={s.t} className="lift flex flex-col rounded-xl border border-earth-foreground/15 p-8 hover:border-primary">
                 <span className="font-display text-6xl italic text-primary">{i + 1}</span>
                 <h3 className="mt-8 text-3xl">{s.t}</h3>
                 <p className="mt-4 text-sm leading-relaxed opacity-75">{s.d}</p>
@@ -136,7 +135,7 @@ function Index() {
       {/* Case study */}
       <section id="work" className="mx-auto max-w-7xl px-6 py-24 md:py-32">
         <p className="mb-4 text-xs uppercase tracking-[0.3em] text-primary">Featured work</p>
-        <div className="grid overflow-hidden rounded-2xl bg-card shadow-xl shadow-foreground/5 lg:grid-cols-2">
+        <div className="reveal grid overflow-hidden rounded-2xl bg-card shadow-xl shadow-foreground/5 lg:grid-cols-2">
           <img src={kheyti} alt="Farmer watching an instructional video on his phone" loading="lazy" width={1280} height={960} className="h-full min-h-80 w-full object-cover" />
           <div className="p-10 md:p-14">
             <h2 className="text-5xl">Kheyti</h2>

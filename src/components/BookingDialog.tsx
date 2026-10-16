@@ -61,7 +61,7 @@ export function BookingDialog({ children, className }: { children: ReactNode; cl
                   {errors["message"] && <p className="mt-1 text-xs text-destructive">{errors["message"]}</p>}
                 </div>
                 {status === "error" && <p className="text-sm text-destructive">Something went wrong. Please try again.</p>}
-                <button disabled={status === "sending"} className="w-full rounded-full bg-primary py-3.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60">
+                <button disabled={status === "sending"} className="lift w-full rounded-full bg-primary py-3.5 text-sm font-medium text-primary-foreground hover:opacity-90 disabled:opacity-60">
                   {status === "sending" ? "Sending…" : "Submit"}
                 </button>
               </form>
