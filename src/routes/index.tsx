@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { BookOpen, HelpCircle, Search, Frame, Hammer, Send, ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
 import hero from "@/assets/hero.jpg";
 import kheyti from "@/assets/kheyti.jpg";
@@ -37,6 +38,13 @@ const partners = ["NGOs", "Foundations", "CSR", "Government Programmes", "Social
 const btn = "inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-medium text-primary-foreground transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/30";
 
 function Index() {
+  useEffect(() => {
+    const els = document.querySelectorAll("section h2, section h3, section p, section img, footer p");
+    els.forEach((e) => e.classList.add("reveal"));
+    const io = new IntersectionObserver((es) => es.forEach((x) => { if (x.isIntersecting) { x.target.classList.add("in"); io.unobserve(x.target); } }), { threshold: 0.15 });
+    els.forEach((e) => io.observe(e));
+    return () => io.disconnect();
+  }, []);
   return (
     <div className="min-h-screen">
       {/* Navbar */}
