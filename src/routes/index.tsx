@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
+import { BookingDialog } from "@/components/BookingDialog";
 import { BookOpen, HelpCircle, Search, Frame, Hammer, Send, ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
 import hero from "@/assets/hero.jpg";
 import kheyti from "@/assets/kheyti.jpg";
@@ -57,7 +58,7 @@ function Index() {
                 <a key={l} href={`#${l.toLowerCase()}`} className="transition-colors hover:text-primary">{l}</a>
               ))}
             </div>
-            <a href="#contact" className="rounded-full border border-foreground px-5 py-2 text-sm transition-colors hover:bg-foreground hover:text-background">Contact Us</a>
+            <BookingDialog className="rounded-full border border-foreground px-5 py-2 text-sm transition-colors hover:bg-foreground hover:text-background">Contact Us</BookingDialog>
           </div>
         </nav>
       </header>
@@ -72,7 +73,7 @@ function Index() {
           <p className="mt-8 max-w-lg text-lg leading-relaxed text-muted-foreground">
             Impact becomes communication people understand, remember, and act on.
           </p>
-          <a href="#contact" className={`${btn} mt-10`}>Book a Discovery Call <ArrowUpRight className="h-4 w-4" /></a>
+          <BookingDialog className={`${btn} mt-10`}>Book a Discovery Call <ArrowUpRight className="h-4 w-4" /></BookingDialog>
         </div>
         <div className="animate-rise lg:col-span-5" style={{ animationDelay: "200ms" }}>
           <img src={hero} alt="Hands weaving earthy threads on a loom" width={1280} height={1536} className="aspect-[4/5] w-full rounded-t-full object-cover" />
