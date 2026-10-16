@@ -100,7 +100,7 @@ function Index() {
         </div>
         <div className="grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-3">
           {steps.map(({ n, t, d, I }, i) => (
-            <div key={n} style={{ "--d": `${i * 120}ms` } as React.CSSProperties} className="reveal group border-b border-r border-border p-10 transition-colors hover:bg-card">
+            <div key={n} style={{ "--d": `${i * 120}ms` } as React.CSSProperties} className="reveal group border-b border-r border-border p-10 hover:bg-card">
               <div className="flex items-start justify-between">
                 <span className="font-display text-lg text-muted-foreground">{n}</span>
                 <I strokeWidth={1.25} className="h-8 w-8 text-primary transition-transform group-hover:-rotate-6" />
