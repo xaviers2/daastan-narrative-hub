@@ -58,7 +58,7 @@ export function BookingDialog({ children, className }: { children: ReactNode; cl
                 ))}
                 <div>
                   <textarea name="message" rows={4} placeholder="What would you like to work on with us?" className={field} />
-                  {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
+                  {errors["message"] && <p className="mt-1 text-xs text-destructive">{errors["message"]}</p>}
                 </div>
                 {status === "error" && <p className="text-sm text-destructive">Something went wrong. Please try again.</p>}
                 <button disabled={status === "sending"} className="w-full rounded-full bg-primary py-3.5 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 disabled:opacity-60">
